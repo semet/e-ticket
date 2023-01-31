@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Shared;
 
+use App\Models\Destination;
 use Illuminate\View\Component;
 
 class Sidebar extends Component
@@ -11,8 +12,9 @@ class Sidebar extends Component
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(
+        public Destination $destination
+    ) {
         //
     }
 

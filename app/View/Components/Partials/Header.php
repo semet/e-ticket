@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Partials;
 
+use App\Models\Destination;
 use Illuminate\View\Component;
 
 class Header extends Component
@@ -23,6 +24,11 @@ class Header extends Component
      */
     public function render()
     {
-        return view('components.partials.header');
+        $destinations = Destination::select(['id', 'name', 'status'])
+            ->get();
+
+        return view('components.partials.header', [
+            'destinations' => $destinations
+        ]);
     }
 }

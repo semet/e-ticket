@@ -25,7 +25,7 @@
                 <div class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-3 pt-3">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.html">
+                        <a class="navbar-brand" href="{{route('home.page')}}">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="image">
                         </a>
                     </div>
@@ -38,17 +38,29 @@
                             <li class="submenu dropdown active">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Destinations <i class="icon-arrow-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">Kedai Swah Sembalun </a></li>
-                                    <li><a href="#">International Cirquit Mandalika</a></li>
-                                    <li class="bg-info"><a href="#">Kosaido ( coming soon)</a></li>
+                                    @foreach ($destinations as $destination)
+                                    <li><a href="{{ route('booking', $destination->id) }}">{{ $destination->name }} </a></li>
+                                    @endforeach
                                 </ul>
                             </li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                     <div class="register-login d-flex align-items-center">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="me-3">
-                            <i class="icon-user"></i> Login/Register
-                        </a>
+                        @guest()
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="me-3">
+                                <i class="icon-user"></i> Login/Register
+                            </a>
+                        @endguest
+
+                        @auth
+                                <a href="{{ route('logout') }}" class="me-3">
+                                    <i class="icon-logout"></i> Logout
+                                </a>
+                                <a href="#" class="me-3">
+                                    <i class="icon-user"></i>
+                                </a>
+                        @endauth
+
                     </div>
 
                     <div id="slicknav-mobile"></div>

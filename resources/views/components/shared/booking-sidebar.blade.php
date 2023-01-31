@@ -11,8 +11,8 @@
                 </div>
                 <div class="col-lg-8 col-md-8 ps-0">
                     <div class="trend-content position-relative">
-                        <h5 class="mb-1"><a href="grid-leftfilter.html">Kedai Sawah Sembalun</a></h5>
-                        <h6 class="theme mb-0"><i class="icon-location-pin"></i> Lombok Utara</h6>
+                        <h5 class="mb-1"><a href="grid-leftfilter.html">{{ $destination->name }}</a></h5>
+                        <h6 class="theme mb-0"><i class="icon-location-pin"></i> {{ $destination->location }}</h6>
                     </div>
                 </div>
             </div>
@@ -22,41 +22,94 @@
                 <div class="col-lg-12">
                     <div class="trend-check-item bg-grey rounded p-3 mb-2">
                         <p class="mb-0">Check In</p>
-                        <h6 class="mb-0">Thu 21 Feb 2022</h6>
-                        <small>15:00 - 22:00</small>
+                        <h6 class="mb-0">{{ \Carbon\Carbon::parse($date)->format('d, M Y') }}</h6>
+                        <small>{{ substr($bookingTime->start_hour, 0, 5) }} - {{ substr($bookingTime->end_hour, 0, 5) }}</small>
                     </div>
                 </div>
             </div>
         </div>
         <div class="trend-check">
-            <h6 class="mb-0">Quantity: <span class="float-end fw-normal">4 orang</span> </h6>
+            <h6 class="mb-0">Quantity: <span class="float-end fw-normal">{{ $quantity }} orang</span> </h6>
         </div>
 
     </div>
     <div class="sidebar-item bg-white rounded box-shadow overflow-hidden p-3 mb-4">
         <h4>Your Price Summary</h4>
-        <table>
-            <tbody>
+        @if($packet == 'couple')
+            <table>
+                <tbody>
+                    <tr>
+                        <td> Paket Couple x 1</td>
+                        <td class="theme2">Rp. {{ number_format(config('site.couple_price')) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Discount</td>
+                        <td class="theme2">Rp. -50.000</td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah</td>
+                        <td class="theme2">Rp. {{ number_format(config('site.couple_actual_price')) }}</td>
+                    </tr>
+                </tbody>
+                <tfoot class="bg-title">
+                    <tr>
+                        <th class="font-weight-bold white">Total</th>
+                        <th class="font-weight-bold white">Rp. {{ number_format(config('site.couple_actual_price')) }}</th>
+                    </tr>
+                </tfoot>
+            </table>
+        @elseif($packet == 'family')
+            <table>
+                <tbody>
                 <tr>
-                    <td> Rp. 250.000 x 4</td>
-                    <td class="theme2">Rp. 1000.000</td>
+                    <td> Paket Family x 1</td>
+                    <td class="theme2">Rp. {{ number_format(config('site.family_price')) }}</td>
                 </tr>
                 <tr>
                     <td>Discount</td>
-                    <td class="theme2">20%</td>
+                    <td class="theme2">Rp. -50.000</td>
                 </tr>
                 <tr>
                     <td>Jumlah</td>
-                    <td class="theme2">Rp. 800.000</td>
+                    <td class="theme2">Rp. {{ number_format(config('site.family_actual_price')) }}</td>
                 </tr>
-            </tbody>
-            <tfoot class="bg-title">
+                </tbody>
+                <tfoot class="bg-title">
                 <tr>
                     <th class="font-weight-bold white">Total</th>
-                    <th class="font-weight-bold white">Rp. 800.000</th>
+                    <th class="font-weight-bold white">Rp. {{ number_format(config('site.family_actual_price')) }}</th>
                 </tr>
-            </tfoot>
-        </table>
+                </tfoot>
+            </table>
+        @elseif($packet == '')
+            <table>
+                <tbody>
+                <tr>
+                    <td> Rp. {{ number_format($destination->price) }} x {{ $quantity }}</td>
+                    <td class="theme2">Rp. {{ number_format($destination->price * $quantity) }}</td>
+                </tr>
+                <tr>
+                    <td>Discount</td>
+                    <td class="theme2">0%</td>
+                </tr>
+                <tr>
+                    <td>Jumlah</td>
+                    <td class="theme2">Rp. {{ number_format($destination->price * $quantity) }}</td>
+                </tr>
+                </tbody>
+                <tfoot class="bg-title">
+                <tr>
+                    <th class="font-weight-bold white">Total</th>
+                    <th class="font-weight-bold white">Rp. {{ number_format($destination->price * $quantity) }}</th>
+                </tr>
+                </tfoot>
+            </table>
+        @endif
+        <div class="my-3 mx-auto">
+            @auth
+            <button class="nir-btn float-lg-star w-100" id="checkOutButton">Checkout</button>
+            @endauth
+        </div>
     </div>
     {{-- <div class="sidebar-item bg-white rounded box-shadow overflow-hidden p-3">
         <h4>Do you have a promo code?</h4>

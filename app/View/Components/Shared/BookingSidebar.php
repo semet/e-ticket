@@ -2,6 +2,8 @@
 
 namespace App\View\Components\Shared;
 
+use App\Models\Destination;
+use App\Models\Schedule;
 use Illuminate\View\Component;
 
 class BookingSidebar extends Component
@@ -11,7 +13,13 @@ class BookingSidebar extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(
+        public Destination $destination,
+        public int $quantity,
+        public string $date,
+        public string $time,
+        public string $packet = ''
+    )
     {
         //
     }
@@ -23,6 +31,9 @@ class BookingSidebar extends Component
      */
     public function render()
     {
-        return view('components.shared.booking-sidebar');
+        $bookingTime = Schedule::find($this->time);
+        return view('components.shared.booking-sidebar', [
+            'bookingTime' => $bookingTime
+        ]);
     }
 }

@@ -3,8 +3,7 @@
     <div class="breadcrumb-outer">
         <div class="container">
             <div class="breadcrumb-content text-center">
-                <h1 class="mb-3">Kedai Sawah Sembalun - Lombok Utara</h1>
-
+                <h1 class="mb-3">{{ $title }}</h1>
             </div>
         </div>
     </div>
