@@ -22,8 +22,8 @@ class CheckSpecialDestinationAvailability
         public string|null $familyCount,
         //seat count
         public int  $seatCount = 8
-    )
-    {}
+    ) {
+    }
 
     public function specialDestinationId()
     {
@@ -37,6 +37,7 @@ class CheckSpecialDestinationAvailability
         $booked =  Booking::where('destination_id', $this->specialDestinationId())
             ->where('date', $this->bookingDate)
             ->where('schedule_id', $this->bookingTime)
+            ->where('status', 'confirmed')
             ->withCount('passengers')
             ->get();
 
@@ -52,26 +53,27 @@ class CheckSpecialDestinationAvailability
         $packetBooking = Booking::where('destination_id', $this->specialDestinationId())
             ->where('date', $this->bookingDate)
             ->where('schedule_id', $this->bookingTime)
-            ->where('type', '!=', 'quantity')
+            ->where('status', '!=', 'confirmed')
+            ->where('status', 'confirmed')
             ->first();
         return $packetBooking ? $this->seatCount - 4 : $this->seatCount - $this->bookedSeat();
     }
 
     public function check(): bool
     {
-//        dd($this->bookedSeat().'-'.$this->ticketQuantity);
-//        dd($this->ticketQuantity);
-        if($this->bookingType === 'quantity'){
+        //        dd($this->bookedSeat().'-'.$this->ticketQuantity);
+        //        dd($this->ticketQuantity);
+        if ($this->bookingType === 'quantity') {
             return $this->checkBasedOnQuantity();
-        }else{
+        } else {
             return $this->checkBasedOnPacket();
         }
     }
 
     public function checkBasedOnQuantity(): bool
     {
-//        dd($this->finalSeatCount() >= (int) $this->ticketQuantity);
-//        dd($this->finalSeatCount());
+        //        dd($this->finalSeatCount() >= (int) $this->ticketQuantity);
+        //        dd($this->finalSeatCount());
         return $this->finalSeatCount() >= (int) $this->ticketQuantity;
     }
 
@@ -79,5 +81,4 @@ class CheckSpecialDestinationAvailability
     {
         return $this->finalSeatCount() >= 4;
     }
-
 }

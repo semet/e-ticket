@@ -14,10 +14,11 @@ class Passenger extends Model
         'booking_id',
         'nik',
         'name',
-        'email'
+        'email',
+        'is_claimed'
     ];
 
-    public function booking ()
+    public function booking()
     {
         return $this->belongsTo(Booking::class);
     }

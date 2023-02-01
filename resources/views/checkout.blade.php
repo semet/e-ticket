@@ -79,12 +79,18 @@
                         /* You may add your own js here, this is just example */
                         // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                         console.log(result)
+                        window.location.href = '{{ route('checkout.pending', $booking->id) }}'
                     },
                     // Optional
                     onError: function(result) {
                         /* You may add your own js here, this is just example */
                         // document.getElementById('result-json').innerHTML += JSON.stringify(result, null, 2);
                         console.log(result)
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: JSON.stringify(result, null, 2),
+                        })
                     },
                     onClose: function(){
                         location.reload();

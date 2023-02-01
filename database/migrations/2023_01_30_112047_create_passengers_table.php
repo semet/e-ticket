@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('nik');
             $table->string('name');
             $table->string('email');
+            $table->boolean('is_claimed')->default(0);
             $table->timestamps();
         });
     }

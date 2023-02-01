@@ -3,11 +3,14 @@
 namespace App\Providers;
 
 use App\Events\CheckoutSuccess;
+use App\Events\RegistrationSuccesfull;
+use App\Events\RegistrationSuccessful;
 use App\Events\SocialUserCreated;
+use App\Listeners\SendEmailVerificationNotification;
 use App\Listeners\SendInvoice;
 use App\Listeners\SendPasswordGenerationNotification;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+// use Illuminate\Auth\Events\Registered;
+// use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
@@ -19,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
      * @var array<class-string, array<int, class-string>>
      */
     protected $listen = [
-        Registered::class => [
+        RegistrationSuccessful::class => [
             SendEmailVerificationNotification::class,
         ],
         CheckoutSuccess::class => [

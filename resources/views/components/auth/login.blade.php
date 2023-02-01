@@ -1,10 +1,5 @@
 <div class="row">
-    <div class="col-lg-6">
-       <div class="blog-image rounded">
-            <a href="#" style="background-image: url({{ asset('assets/images/trending/trending5.jpg') }});"></a>
-        </div>
-    </div>
-    <div class="col-lg-6">
+    <div class="w-100">
         <h4 class="text-center border-b pb-2">Login</h4>
         <div class="log-reg-button d-flex align-items-center justify-content-between">
             <a href="{{ route('login.facebook.redirect') }}" class="btn btn-fb">
@@ -31,7 +26,7 @@
             <div class="comment-btn mb-2 pb-2 text-center border-b">
                 <input type="submit" class="nir-btn w-100" id="submit" value="Login">
             </div>
-            <p class="text-center">Don't have an account? <a href="#" class="theme">Register</a></p>
+            <p class="text-center">Don't have an account? <a href="{{ route('register.show') }}" class="theme">Register</a></p>
         </form>
     </div>
 </div>

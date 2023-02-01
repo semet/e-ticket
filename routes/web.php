@@ -9,6 +9,7 @@ use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\NewPasswordController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +18,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home.page');
 
 
 //auth
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login.show');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/register', [RegistrationController::class, 'showForm'])->name('register.show');
+Route::post('/register', [RegistrationController::class, 'store'])->name('register.post');
+Route::get('/resend-verification', [RegistrationController::class, 'resendVerification'])->name('register.resend.verification');
+Route::get('/verify-email/{id}', [RegistrationController::class, 'showVerificationForm'])->name('register.verify.show');
+Route::post('/verify-email', [RegistrationController::class, 'verify'])->name('register.verify');
 //google auth
 Route::get('/login/google', [GoogleAuthController::class, 'redirect'])
     ->name('login.google.redirect');
@@ -33,14 +40,14 @@ Route::get('/login/facebook/callback', [FacebookAuthController::class, 'callback
 Route::get('/new-password/{userId}', [NewPasswordController::class, 'show'])->name('new.password.show');
 Route::post('/new-password', [NewPasswordController::class, 'store'])->name('new.password.store');
 
-
+//
 Route::get('/destination/{id}', [DestinationController::class, 'index'])
     ->name('destination');
 
 Route::post('/booking/check-availability', [BookingController::class, 'checkAvailability'])
     ->name('booking.check-availability');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'email.verified'])->group(function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('/user', 'profile')->name('user.profile');
         Route::get('/user/settings', 'setting')->name('user.setting');
@@ -59,6 +66,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/checkout/success/{bookingId}', [CheckoutController::class, 'processSuccessCheckout'])
         ->name('checkout.success');
+
+    Route::get('/checkout/pending/{bookingId}', [CheckoutController::class, 'processPendingOrder'])
+        ->name('checkout.pending');
 
     Route::get('/invoice/{bookingId}', [InvoiceController::class, 'index'])
         ->name('invoice');

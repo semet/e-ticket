@@ -17,8 +17,8 @@ class CheckRegularDestinationAvailability
         public string $ticketQuantity,
         //seat count
         public int  $seatCount = 14
-    )
-    {}
+    ) {
+    }
 
     public function bookedSeat(): int
     {
@@ -26,6 +26,7 @@ class CheckRegularDestinationAvailability
             ->where('date', $this->bookingDate)
             ->where('schedule_id', $this->bookingTime)
             ->where('type', 'quantity')
+            ->where('status', 'confirmed')
             ->withCount('passengers')
             ->get();
 
@@ -42,9 +43,7 @@ class CheckRegularDestinationAvailability
 
     public function check(): bool
     {
-//        dd($this->bookedSeat());
-       return $this->finalSeatCount() >= (int) $this->ticketQuantity;
+        //        dd($this->bookedSeat());
+        return $this->finalSeatCount() >= (int) $this->ticketQuantity;
     }
-
-
 }

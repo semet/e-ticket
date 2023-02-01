@@ -17,7 +17,7 @@
                                 <select name="bookingTime" id="bookingTime" class="form-select">
                                     <option value="">--Pilih Jam--</option>
                                     @foreach($destination->schedules as $schedule)
-                                        <option value="{{ $schedule->id }}">{{ $schedule->start_hour.' s/d '. $schedule->end_hour }}</option>
+                                        <option value="{{ $schedule->id }}">{{ substr($schedule->start_hour, 0, 5).' s/d '. substr($schedule->end_hour, 0, 5) }}</option>
                                     @endforeach
                                 </select>
                             </div>

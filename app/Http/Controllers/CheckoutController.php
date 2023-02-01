@@ -18,14 +18,14 @@ class CheckoutController extends Controller
 
         $snapToken  = $booking->snap_token;
 
-        if(empty($snapToken)){
+        if (empty($snapToken)) {
             $midtrans = new CreateSnapTokenService($booking, $price);
             $snapToken = $midtrans->getSnapToken();
             $booking->snap_token = $snapToken;
             $booking->save();
         }
 
-        if($booking->status == 'confirmed'){
+        if ($booking->status == 'confirmed') {
             return redirect()->route('invoice', $booking->id);
         }
 
@@ -38,23 +38,28 @@ class CheckoutController extends Controller
 
     public function getPrice(Booking $booking)
     {
-        if($booking->type == 'quantity'){
+        if ($booking->type == 'quantity') {
             return $booking->destination->price * $booking->passengers->count();
-        }elseif($booking->type == 'couple'){
+        } elseif ($booking->type == 'couple') {
             return config('site.couple_actual_price');
-        }elseif($booking->type == 'family') {
+        } elseif ($booking->type == 'family') {
             return config('site.family_actual_price');
         }
     }
 
-    public function processSuccessCheckout ($bookingId)
+    public function processSuccessCheckout($bookingId)
     {
         $booking  = Booking::find($bookingId);
-//        $pdf = Pdf::loadView('pdfs.invoice', ['booking' => $booking]);
+        //        $pdf = Pdf::loadView('pdfs.invoice', ['booking' => $booking]);
 
         CheckoutSuccess::dispatch($booking);
-//
+        //
         return redirect()->route('invoice', $booking->id);
-//        return view('mails.confirmation', ['booking' => $booking]);
+        //        return view('mails.confirmation', ['booking' => $booking]);
+    }
+
+    public function processPendingOrder($bookingId)
+    {
+        return view('checkout-pending');
     }
 }

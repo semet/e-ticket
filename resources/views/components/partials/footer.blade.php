@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
                     <div class="footer-about">
-                        <img src="{{ asset('assets/images/logo-white.png') }}" alt="">
+                        <img src="{{ asset('assets/images/logo/logo.png') }}" width="200px" alt="{{ config('app.name') }}">
                         <p class="mt-3 mb-3 white">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
                         </p>
@@ -75,7 +75,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mb-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="footer-links">
                         <h3 class="white">Quick link</h3>
                         <ul>
@@ -88,7 +88,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6 col-sm-12 mb-4">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="footer-links">
                         <h3 class="white">Categories</h3>
                         <ul>
@@ -101,18 +101,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
-                    <div class="footer-links">
-                        <h3 class="white">Newsletter</h3>
-                        <div class="newsletter-form ">
-                            <p class="mb-3">Jin our community of over 200,000 global readers who receives emails filled with news, promotions, and other good stuff.</p>
-                            <form action="#" method="get" accept-charset="utf-8" class="border-0 d-flex align-items-center">
-                                <input type="text" placeholder="Email Address">
-                                <button class="nir-btn ms-2">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -139,7 +128,7 @@
         <div class="container">
             <div class="copyright-inner rounded p-3 d-md-flex align-items-center justify-content-between">
                 <div class="copyright-text">
-                    <p class="m-0 white">2022 Travelin. All rights reserved.</p>
+                    <p class="m-0 white">{{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
                 </div>
                 <div class="social-links">
                     <ul>

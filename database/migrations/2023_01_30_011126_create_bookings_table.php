@@ -37,7 +37,7 @@ return new class extends Migration
             $table->date('date');
             $table->enum('status', ['pending', 'confirmed', 'cancelled']);
             $table->enum('type', ['quantity', 'couple', 'family']);
-//            $table->string('snap_token')->nullable();
+            $table->string('snap_token')->nullable();
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <a class="navbar-brand" href="{{route('home.page')}}">
-                            <img src="{{ asset('assets/images/logo.png') }}" alt="image">
+                            <img src="{{ asset('assets/images/logo/no_bg.png') }}" width="150px" alt="image">
                         </a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
