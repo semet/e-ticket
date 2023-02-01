@@ -155,11 +155,6 @@
                                     <small>Beberapa informasi berguna untuk penumpang</small>
                                 </div>
                             </div>
-                            <div class="customer-information card-information">
-                                <div class="booking-terms border-t pt-3 mt-3">
-                                    <button class="nir-btn float-lg-star w-100"  type="submit">Checkout</button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

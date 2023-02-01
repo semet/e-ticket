@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Events\CheckoutSuccess;
+use App\Events\SocialUserCreated;
 use App\Listeners\SendInvoice;
+use App\Listeners\SendPasswordGenerationNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         CheckoutSuccess::class => [
             SendInvoice::class
+        ],
+        SocialUserCreated::class => [
+            SendPasswordGenerationNotification::class
         ]
     ];
 

@@ -39,7 +39,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Destinations <i class="icon-arrow-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
                                     @foreach ($destinations as $destination)
-                                    <li><a href="{{ route('booking', $destination->id) }}">{{ $destination->name }} </a></li>
+                                    <li><a href="{{ route('destination', $destination->id) }}">{{ $destination->name }} </a></li>
                                     @endforeach
                                 </ul>
                             </li>
@@ -53,12 +53,12 @@
                         @endguest
 
                         @auth
-                                <a href="{{ route('logout') }}" class="me-3">
-                                    <i class="icon-logout"></i> Logout
-                                </a>
-                                <a href="#" class="me-3">
-                                    <i class="icon-user"></i>
-                                </a>
+                            <a href="{{ route('logout') }}" class="me-3">
+                                <i class="icon-logout"></i> Logout
+                            </a>
+                            <a href="{{ route('user.order') }}" class="me-3">
+                                <i class="icon-user"></i>
+                            </a>
                         @endauth
 
                     </div>

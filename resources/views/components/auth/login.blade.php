@@ -7,12 +7,12 @@
     <div class="col-lg-6">
         <h4 class="text-center border-b pb-2">Login</h4>
         <div class="log-reg-button d-flex align-items-center justify-content-between">
-            <button type="submit" class="btn btn-fb">
-                <i class="fab fa-facebook"></i> Login with Facebook
-            </button>
-            <button type="submit" class="btn btn-google">
-                <i class="fab fa-google"></i> Login with Google
-            </button>
+            <a href="{{ route('login.facebook.redirect') }}" class="btn btn-fb">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="{{ route('login.google.redirect') }}" class="btn btn-google">
+                <i class="fab fa-google"></i> Google
+            </a>
         </div>
 
         <hr class="log-reg-hr position-relative my-4 overflow-visible">
