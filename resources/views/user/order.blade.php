@@ -44,11 +44,11 @@
                                         <td>
                                             @if($order->status == 'confirmed' || $order->status == 'cancelled')
                                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-secondary">Lihat</button>
+                                                <a href="{{ route('user.order.details', $order->id) }}" class="btn btn-secondary">Lihat</a>
                                             </div>
                                             @elseif($order->status == 'pending')
                                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                                <button type="button" class="btn btn-secondary">Lihat</button>
+                                                <a href="{{ route('user.order.details', $order->id) }}" class="btn btn-secondary">Lihat</a>
                                                 <a href="{{ route('checkout', $order->id) }}" class="btn btn-primary">Bayar</a>
                                             </div>
                                             @endif

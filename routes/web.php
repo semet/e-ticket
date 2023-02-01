@@ -52,6 +52,7 @@ Route::middleware(['auth', 'email.verified'])->group(function () {
         Route::get('/user', 'profile')->name('user.profile');
         Route::get('/user/settings', 'setting')->name('user.setting');
         Route::get('/user/order', 'order')->name('user.order');
+        Route::get('/user/order/{id}', 'orderDetails')->name('user.order.details');
         Route::get('/user/message', 'message')->name('user.message');
     });
 

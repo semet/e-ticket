@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
@@ -20,6 +21,25 @@ class UserController extends Controller
 
         return view('user.order', [
             'orders' => $orders
+        ]);
+    }
+
+    public function orderDetails($id)
+    {
+        $order = Booking::find($id);
+        $status = Http::withHeaders([
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Basic ' . base64_encode(config('midtrans.server_key'))
+        ])
+            ->get('https://api.sandbox.midtrans.com/v2/97393722/status');
+
+        $decodedStatus = json_decode($status);
+
+        // dd($decodedStatus);
+        return view('user.order-details', [
+            'order' => $order,
+            'status' => $decodedStatus
         ]);
     }
 

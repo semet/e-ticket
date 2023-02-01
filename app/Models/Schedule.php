@@ -10,6 +10,11 @@ class Schedule extends Model
 {
     use HasFactory, HasUlids;
 
+    protected $fillable = [
+        'start_hour',
+        'end_hour'
+    ];
+
     public function destination()
     {
         return $this->belongsTo(Destination::class);

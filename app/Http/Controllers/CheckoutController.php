@@ -12,7 +12,7 @@ class CheckoutController extends Controller
 {
     public function index($bookingId)
     {
-        $booking  = Booking::find($bookingId);
+        $booking  = Booking::findOrFail($bookingId);
 
         $price = $this->getPrice($booking);
 
