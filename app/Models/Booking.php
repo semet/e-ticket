@@ -20,6 +20,12 @@ class Booking extends Model
         'type',
         'snap_token'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function destination()
     {
         return $this->belongsTo(Destination::class);
@@ -29,7 +35,7 @@ class Booking extends Model
     {
         return $this->belongsTo(Schedule::class);
     }
-    public function passengers ()
+    public function passengers()
     {
         return $this->hasMany(Passenger::class);
     }

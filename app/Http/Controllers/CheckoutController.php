@@ -50,10 +50,7 @@ class CheckoutController extends Controller
     public function processSuccessCheckout($bookingId)
     {
         $booking  = Booking::find($bookingId);
-        //        $pdf = Pdf::loadView('pdfs.invoice', ['booking' => $booking]);
 
-        CheckoutSuccess::dispatch($booking);
-        //
         return redirect()->route('invoice', $booking->id);
         //        return view('mails.confirmation', ['booking' => $booking]);
     }

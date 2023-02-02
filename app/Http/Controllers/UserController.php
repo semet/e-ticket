@@ -32,7 +32,7 @@ class UserController extends Controller
             'Content-Type' => 'application/json',
             'Authorization' => 'Basic ' . base64_encode(config('midtrans.server_key'))
         ])
-            ->get('https://api.sandbox.midtrans.com/v2/97393722/status');
+            ->get('https://api.sandbox.midtrans.com/v2/' . $order->number . '/status');
 
         $decodedStatus = json_decode($status);
 

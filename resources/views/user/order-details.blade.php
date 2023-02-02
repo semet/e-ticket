@@ -38,6 +38,25 @@
                                     <dt class="col-sm-3 my-2">Status Transaksi</dt>
                                     <dd class="col-sm-9 my-2">{{ $status->transaction_status }}</dd>
                                 </dl>
+                                <h4>Detail Penumpang</h4>
+                                <table class="table table-responsive">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Nama Lengkap</th>
+                                            <th scope="col">Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($order->passengers as $passenger)
+                                        <tr>
+                                            <th scope="row">{{ $passenger->nik }}</th>
+                                            <td>{{ $passenger->name }}</td>
+                                            <td>{{ $passenger->email }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>

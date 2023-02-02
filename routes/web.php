@@ -74,5 +74,8 @@ Route::middleware(['auth', 'email.verified'])->group(function () {
     Route::get('/invoice/{bookingId}', [InvoiceController::class, 'index'])
         ->name('invoice');
 });
-Route::get('/invoice/download/{bookingId}', [InvoiceController::class, 'download'])
+Route::get('/invoice/download/{bookingId}/{passengerId}', [InvoiceController::class, 'download'])
     ->name('invoice.download');
+
+Route::get('/admin/confirm-ticket/{bookingId}/{passengerId}', function () {
+})->name('admin.confirm.ticket');

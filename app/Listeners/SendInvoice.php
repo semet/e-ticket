@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class SendInvoice
 {
 
-//    public string $connection = 'database';
+    //    public string $connection = 'database';
     /**
      * Create the event listener.
      *
@@ -31,8 +31,8 @@ class SendInvoice
      */
     public function handle(CheckoutSuccess $event)
     {
-        $event->booking->passengers()->each(function($passenger) use ($event) {
-           return Mail::to($passenger->email)->send(new InvoiceMail($event->booking));
+        $event->booking->passengers()->each(function ($passenger) use ($event) {
+            return Mail::to($passenger->email)->send(new InvoiceMail($event->booking, $passenger));
         });
     }
 }

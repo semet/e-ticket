@@ -176,7 +176,7 @@
                 <!-- start copy -->
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                        <p style="margin: 0;"><b>Yth. {{ auth()->user()->name }},</b>
+                        <p style="margin: 0;"><b>Yth. {{ $booking->user->name }},</b>
                             <br>
                             Reservasi Pesanan Anda telah sukses dikonfirmasi. E-tiket Anda terdapat di attachment.
                             <br>
@@ -195,7 +195,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                                <a href="{{ route('invoice.download', $booking->id) }}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Link E Ticket Anda</a>
+                                                <a href="{{ route('invoice.download', ['bookingId' => $booking->id, 'passengerId' => $passenger->id] ) }}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Link E Ticket Anda</a>
                                             </td>
                                         </tr>
                                     </table>
@@ -210,7 +210,7 @@
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                         <p style="margin: 0;">Jika Tombol Tidak Bisa DI Akses Anda Bisa Menggunakan Link Berikut:</p>
-                        <p style="margin: 0;"><a href="{{ route('invoice.download', $booking->id) }}" target="_blank">{{ route('invoice.download', $booking->id) }}</a></p>
+                        <p style="margin: 0;"><a href="{{ route('invoice.download', ['bookingId' => $booking->id, 'passengerId' => $passenger->id] ) }}" target="_blank">{{ route('invoice.download', ['bookingId' => $booking->id, 'passengerId' => $passenger->id] ) }}</a></p>
                     </td>
                 </tr>
                 <!-- end copy -->

@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(EmailVerification::class);
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

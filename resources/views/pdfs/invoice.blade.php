@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>A simple, clean, and responsive HTML invoice template</title>
+    <title>Invoice</title>
 
     <style>
         .invoice-box {
@@ -111,7 +111,7 @@
                         </td>
 
                         <td>
-                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('Make me into an QrCode!')) !!} ">
+                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate(route('admin.confirm.ticket', ['bookingId' => $booking->id, 'passengerId' => $passenger->id]))) !!} ">
                         </td>
                     </tr>
                 </table>
