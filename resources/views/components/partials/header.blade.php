@@ -5,15 +5,6 @@
                 <ul>
                     <li><a href="#" class="white"><i class="icon-calendar white"></i> {{ \Carbon\Carbon::now()->format('d, M Y') }}</a></li>
                     <li><a href="#" class="white"><i class="icon-location-pin white"></i> Lombok NTB</a></li>
-                    <li><a href="#" class="white"><i class="icon-clock white"></i> Mon-Fri: 10 AM – 5 PM</a></li>
-                </ul>
-            </div>
-            <div class="links float-right">
-                <ul>
-                    <li><a href="#" class="white"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="white"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="white"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="white"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>

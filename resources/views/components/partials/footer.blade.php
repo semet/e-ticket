@@ -26,39 +26,21 @@
                     <div class="footer-about">
                         <img src="{{ asset('assets/images/logo/logo.png') }}" width="200px" alt="{{ config('app.name') }}">
                         <p class="mt-3 mb-3 white">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio suspendisse leo neque iaculis molestie sagittis maecenas aenean eget molestie sagittis.
+                            Website Pemesanan tiket Elektronik (E-Ticket) Bolamlombok.
                         </p>
-                        <ul>
-                            <li class="white"><strong>PO Box:</strong> +47-252-254-2542</li>
-                            <li class="white"><strong>Location:</strong> Collins Street, sydney, Australia</li>
-                            <li class="white"><strong>Email:</strong> info@Travelin.com</li>
-                            <li class="white"><strong>Website:</strong> www.Travelin.com</li>
-                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="footer-links">
-                        <h3 class="white">Quick link</h3>
-                        <ul>
-                            <li><a href="about-us.html">About Us</a></li>
-                            <li><a href="about-us.html">Delivery Information</a></li>
-                            <li><a href="about-us.html">Privacy Policy</a></li>
-                            <li><a href="about-us.html">Terms &amp; Conditions</a></li>
-                            <li><a href="about-us.html">Customer Service</a></li>
-                            <li><a href="#about-us.html">Return Policy</a></li>
-                        </ul>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                     <div class="footer-links">
-                        <h3 class="white">Categories</h3>
                         <ul>
-                            <li><a href="about-us.html">Travel</a></li>
-                            <li><a href="about-us.html">Technology</a></li>
-                            <li><a href="about-us.html">Lifestyle</a></li>
-                            <li><a href="about-us.html">Destinations</a></li>
-                            <li><a href="about-us.html">Entertainment</a></li>
-                            <li><a href="about-us.html">Business</a></li>
+                            <li class="white"><strong>Location:</strong> JL SWAKARYA NO.46KEKALIK JAYA SEKARBELAKOTA MATARAM NUSA TENGGARA BARAT</li>
+                            <li class="white"><strong>Email:</strong> bolamlombok@gmail.com</li>
+                            <li class="white"><strong>Website:</strong> <a href="https://bolamlombok.com">bolamlombok.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -66,26 +48,7 @@
             </div>
         </div>
     </div>
-
-    <div class="footer-payment">
-        <div class="container">
-            <div class="row footer-pay align-items-center justify-content-between text-lg-start text-center">
-                <div class="col-lg-8 footer-payment-nav mb-4">
-                    <ul class="">
-                        <li class="me-2">We Support:</li>
-                        <li class="me-2"><i class="fab fa-cc-mastercard fs-4"></i></li>
-                        <li class="me-2"><i class="fab fa-cc-paypal fs-4"></i></li>
-                        <li class="me-2"><i class="fab fa-cc-stripe fs-4"></i></li>
-                        <li class="me-2"><i class="fab fa-cc-visa fs-4"></i></li>
-                        <li class="me-2"><i class="fab fa-cc-discover fs-4"></i></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
+<div class="footer-copyright">
         <div class="container">
             <div class="copyright-inner rounded p-3 d-md-flex align-items-center justify-content-between">
                 <div class="copyright-text">
@@ -96,7 +59,6 @@
                         <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
