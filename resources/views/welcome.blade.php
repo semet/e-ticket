@@ -12,10 +12,12 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item1">
                         <div class="trend-image position-relative rounded">
-                            <img src="{{ asset('assets/images/destination/destination17.jpg') }}" alt="image">
+                            <img src="{{ $des->thumbnail }}" alt="{{ $des->name }}">
                             <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                                 <div class="trend-content-title">
-                                    <h5 class="mb-0"><a href="{{ route('destination', $des->id) }}" class="theme1">Lombok, NTB</a></h5>
+                                    <h5 class="mb-0">
+                                        <a href="{{ $des->status == 'ready' ? route('destination', $des->id) : '#' }}" class="theme1">{{ $des->location }}</a>
+                                    </h5>
                                     <h3 class="mb-0 white">{{ $des->name }}</h3>
                                 </div>
                             </div>
@@ -27,4 +29,18 @@
             </div>
         </div>
     </section>
+    @push('scripts')
+        <script>
+            $(document).ready(function () {
+                $('.destination-item').on('click', function (e) {
+                    const id = e.target.id
+                    const url = '{{ route('destination', ':param') }}'
+                    const parsedUrl = url.replace(':param', id)
+                    // location.href = parsedUrl
+
+                    console.log(id)
+                })
+            });
+        </script>
+    @endpush
 </x-layouts.main>

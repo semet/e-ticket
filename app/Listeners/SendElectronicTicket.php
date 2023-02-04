@@ -2,14 +2,14 @@
 
 namespace App\Listeners;
 
-use App\Events\CheckoutSuccess;
-use App\Mail\InvoiceMail;
+use App\Events\PaymentSuccessful;
+use App\Mail\TicketMail;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\Mail;
 
-class SendInvoice
+class SendElectronicTicket
 {
 
     //    public string $connection = 'database';
@@ -29,10 +29,10 @@ class SendInvoice
      * @param  \App\Events\CheckoutSuccess  $event
      * @return void
      */
-    public function handle(CheckoutSuccess $event)
+    public function handle(PaymentSuccessful $event)
     {
         $event->booking->passengers()->each(function ($passenger) use ($event) {
-            return Mail::to($passenger->email)->send(new InvoiceMail($event->booking, $passenger));
+            return Mail::to($passenger->email)->send(new TicketMail($event->booking, $passenger));
         });
     }
 }

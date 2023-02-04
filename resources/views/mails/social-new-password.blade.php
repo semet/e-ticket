@@ -218,7 +218,7 @@
                 <!-- start copy -->
                 <tr>
                     <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px; border-bottom: 3px solid #d4dadf">
-                        <p style="margin: 0;">Hamdani,<br> Developer</p>
+                        <p style="margin: 0;">Lombodocia,<br> Developer</p>
                     </td>
                 </tr>
                 <!-- end copy -->

@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Events\CheckoutSuccess;
+use App\Events\PaymentSuccessful;
 use App\Events\RegistrationSuccesfull;
 use App\Events\RegistrationSuccessful;
 use App\Events\SocialUserCreated;
+use App\Listeners\SendElectronicTicket;
 use App\Listeners\SendEmailVerificationNotification;
 use App\Listeners\SendInvoice;
 use App\Listeners\SendPasswordGenerationNotification;
@@ -25,8 +27,8 @@ class EventServiceProvider extends ServiceProvider
         RegistrationSuccessful::class => [
             SendEmailVerificationNotification::class,
         ],
-        CheckoutSuccess::class => [
-            SendInvoice::class
+        PaymentSuccessful::class => [
+            SendElectronicTicket::class
         ],
         SocialUserCreated::class => [
             SendPasswordGenerationNotification::class

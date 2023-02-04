@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('location');
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
+            $table->string('map_url')->nullable();
             $table->timestamps();
         });
     }

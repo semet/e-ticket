@@ -4,56 +4,17 @@
     <div class="insta-main pb-10">
         <div class="container">
             <div class="insta-inner">
-            <div class="follow-button">
-                <h5 class="m-0 rounded"><i class="fab fa-instagram"></i> Follow on Instagram</h5>
-            </div>
-            <div class="row attract-slider">
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-3.jpg') }}" alt="insta"></a>
+                <div class="row attract-slider">
+                    @foreach($pictures as $picture)
+                    <div class="col-md-3 col-sm-6">
+                        <div class="insta-image rounded">
+                            <a href="{{ $picture->image }}" data-lightbox="{{ $picture->destination->name }}" data-title="{{ $picture->destination->name }}">
+                                <img src="{{ $picture->image }}" alt="{{ $picture->destination->name }}">
+                            </a>
+                        </div>
                     </div>
+                    @endforeach
                 </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-4.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-5.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-1.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-7.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-8.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-2.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-6.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="insta-image rounded">
-                        <a href="gallery.html"><img src="{{ asset('assets/images/insta/ins-9.jpg') }}" alt="insta"></a>
-                    </div>
-                </div>
-            </div>
             </div>
         </div>
     </div>
@@ -92,12 +53,12 @@
                     <div class="footer-links">
                         <h3 class="white">Categories</h3>
                         <ul>
-                          <li><a href="about-us.html">Travel</a></li>
-                          <li><a href="about-us.html">Technology</a></li>
-                          <li><a href="about-us.html">Lifestyle</a></li>
-                          <li><a href="about-us.html">Destinations</a></li>
-                          <li><a href="about-us.html">Entertainment</a></li>
-                          <li><a href="about-us.html">Business</a></li>
+                            <li><a href="about-us.html">Travel</a></li>
+                            <li><a href="about-us.html">Technology</a></li>
+                            <li><a href="about-us.html">Lifestyle</a></li>
+                            <li><a href="about-us.html">Destinations</a></li>
+                            <li><a href="about-us.html">Entertainment</a></li>
+                            <li><a href="about-us.html">Business</a></li>
                         </ul>
                     </div>
                 </div>

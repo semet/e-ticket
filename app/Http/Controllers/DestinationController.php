@@ -10,7 +10,7 @@ class DestinationController extends Controller
     public function index($id)
     {
         $destination = Destination::where('id', $id)->with(['schedules'])->first();
-//        dd($destination);
+
         return view('destination', [
             'destination' => $destination
         ]);

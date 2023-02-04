@@ -2,6 +2,7 @@
 
 namespace App\View\Components\Partials;
 
+use App\Models\DestinationPicture;
 use Illuminate\View\Component;
 
 class Footer extends Component
@@ -23,6 +24,12 @@ class Footer extends Component
      */
     public function render()
     {
-        return view('components.partials.footer');
+        $pictures = DestinationPicture::all()
+            ->random()
+            ->limit(10)
+            ->get();
+        return view('components.partials.footer', [
+            'pictures' => $pictures
+        ]);
     }
 }

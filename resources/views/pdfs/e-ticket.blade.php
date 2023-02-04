@@ -111,7 +111,7 @@
                         </td>
 
                         <td>
-                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate(route('admin.confirm.ticket', ['bookingId' => $booking->id, 'passengerId' => $passenger->id]))) !!} ">
+                            <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(100)->generate('https://admin.bolamlombok.com/confirm-ticket/'.$booking->id.'/'.$passenger->id)) !!} ">
                         </td>
                     </tr>
                 </table>

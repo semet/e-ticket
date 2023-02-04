@@ -20,7 +20,8 @@ class Destination extends Model
         'description',
         'location',
         'longitude',
-        'latitude'
+        'latitude',
+        'map_url'
     ];
 
     public function pictures()

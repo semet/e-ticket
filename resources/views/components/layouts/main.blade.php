@@ -5,7 +5,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="Website E-Ticket Bolam Lombok"/>
+    <link rel="canonical" href="https://pesantiket.bolamlombok.com" />
     <title>{{ config('app.name'). ': E-Ticket' }}</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
@@ -22,6 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css" integrity="sha512-8D+M+7Y6jVsEa7RD6Kv/Z7EImSpNpQllgaEIQAtqHcI0H6F4iZknRj0Nx1DCdB+TwBaS+702BGWYC0Ze2hpExQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/js/bootstrap-datepicker/css/bootstrap-datepicker.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/js/sweetalert2/sweetalert2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/js/lightbox/dist/css/lightbox.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/fonts/line-icons.css') }}" type="text/css">
 </head>
 
@@ -73,6 +75,7 @@
     <script src="{{ asset('assets/js/axios/axios.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('assets/js/bootstrap-datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lightbox/dist/js/lightbox.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweetalert2/sweetalert2.all.min.js') }}"></script>
     @stack('scripts')
     <script src="{{ asset('assets/js/main.js') }}"></script>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Events\CheckoutSuccess;
+use App\Events\PaymentSuccessful;
 use App\Models\Booking;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class MidtransController extends Controller
                 $booking->status = 'confirmed';
                 $booking->save();
 
-                CheckoutSuccess::dispatch($booking);
+                PaymentSuccessful::dispatch($booking);
             }
         }
     }

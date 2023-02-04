@@ -14,7 +14,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Log;
 
-class InvoiceMail extends Mailable
+class TicketMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,7 +27,6 @@ class InvoiceMail extends Mailable
         public Booking $booking,
         public Passenger $passenger
     ) {
-        Log::info($passenger);
     }
 
     /**
@@ -50,7 +49,7 @@ class InvoiceMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'mails.confirmation',
+            view: 'mails.e-ticket',
             with: [
                 'booking' => $this->booking,
                 'passenger' => $this->passenger
@@ -65,12 +64,12 @@ class InvoiceMail extends Mailable
      */
     public function attachments()
     {
-        $pdf = Pdf::loadView('pdfs.invoice', [
+        $pdf = Pdf::loadView('pdfs.e-ticket', [
             'booking' => $this->booking,
             'passenger' => $this->passenger
         ]);
         return [
-            Attachment::fromData(fn () => $pdf->output(), 'invoice.pdf')
+            Attachment::fromData(fn () => $pdf->output(), 'e-ticket.pdf')
                 ->withMime('application/pdf'),
         ];
     }

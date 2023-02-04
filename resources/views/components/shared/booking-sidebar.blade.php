@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4">
                    <div class="trend-item2 rounded">
-                        <a href="destination-single1.html" style="background-image: url({{ asset('assets/images/destination/destination17.jpg') }});"></a>
+                        <a href="#" style="background-image: url({{ $destination->thumbnail }});"></a>
                          <div class="color-overlay"></div>
                     </div>
                 </div>

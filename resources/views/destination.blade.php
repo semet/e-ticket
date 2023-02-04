@@ -26,23 +26,23 @@
                            </div>
 
                            <div class="description-images mb-4">
-                               <img src="{{ asset('assets/images/trending/trending-large.jpg') }}" alt="" class="w-100 rounded">
+                               <img src="{{ $destination->thumbnail }}" alt="" class="w-100 rounded">
                            </div>
 
                            <div class="description mb-2">
                                <h4>Description</h4>
-                                <p>{{ $destination->description }}</p>
+                                <p>{!!  $destination->description !!}</p>
                             </div>
 
 
                        </div>
 
                        <div  id="single-map" class="single-map mb-4">
-                           <h4>Map</h4>
+                           <h4>Lokasi</h4>
                            <div class="map rounded overflow-hidden">
                                <div style="width: 100%">
-                                   {{-- <iframe class=" rounded overflow-hidden" height="400" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(mangal%20bazar)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe> --}}
-                               </div>
+                                   {!! $destination->map_url !!}
+                                </div>
                            </div>
                        </div>
 

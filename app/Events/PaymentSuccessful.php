@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class CheckoutSuccess
+class PaymentSuccessful
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -22,8 +22,7 @@ class CheckoutSuccess
      */
     public function __construct(
         public Booking $booking
-    )
-    {
+    ) {
         //
     }
 
